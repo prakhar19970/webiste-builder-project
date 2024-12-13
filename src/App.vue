@@ -883,7 +883,7 @@
                   <h2>Add Row</h2>
                   <div class="add-row-body">
                     <div class="row-cards">
-                      <div class="row-card">
+                      <div class="row-card" @click="addColumn(1)">
                         <div class="icon">
                           <i class="fas fa-columns"></i>
                         </div>
@@ -1789,6 +1789,16 @@ export default {
       Navbar,
       ClientCheckInModal,
       HeaderComp
+    },
+    methods:{
+      addColumn(number){
+        const container = document.getElementById("page-creator"); // Get the target container
+        console.log(container);
+        const newElement = document.createElement("div"); // Create a new <p> element
+        newElement.textContent = "Add Element"; // Set its content
+        newElement.classList.add("add-element-body");
+        container.appendChild(newElement); // Append it to the container
+      }
     }
 }
 </script>
@@ -1802,6 +1812,11 @@ header {
   margin: 0 auto 2rem;
 }
 
+.add-element-body {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+}
 @media (min-width: 1024px) {
   header {
     display: flex;
